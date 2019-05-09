@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="0.53.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MYaSyncQL.InfoSchema\MYaSyncQL.InfoSchema.csproj" />
   </ItemGroup>
 

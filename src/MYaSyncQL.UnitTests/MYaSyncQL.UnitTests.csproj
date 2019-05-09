@@ -14,9 +14,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="0.53.0" />
     <PackageReference Include="nunit" Version="3.11.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.12.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.13.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MYaSyncQL.ClassBuilder\MYaSyncQL.ClassBuilder.csproj" />
+    <ProjectReference Include="..\MYaSyncQL.InfoSchema\MYaSyncQL.InfoSchema.csproj" />
+    <ProjectReference Include="..\MYaSyncQL.Utils\MYaSyncQL.Utils.csproj" />
   </ItemGroup>
 
 </Project>
