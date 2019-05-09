@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28902.138
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.ClassBuilder", "MYaSyncQL.ClassBuilder\MYaSyncQL.ClassBuilder.csproj", "{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9EEEB6F1-A7AB-4DC3-837B-674247EE002B} = {9EEEB6F1-A7AB-4DC3-837B-674247EE002B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.InfoSchema", "MYaSyncQL.InfoSchema\MYaSyncQL.InfoSchema.csproj", "{9EEEB6F1-A7AB-4DC3-837B-674247EE002B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Client.Blazor", "MYaSyncQL.Client.Blazor\MYaSyncQL.Client.Blazor.csproj", "{CD3B92C7-8919-47F3-9770-992C236F8CD3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A} = {E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Client.Forms", "MYaSyncQL.Client.Forms\MYaSyncQL.Client.Forms.csproj", "{9F8E7B3F-8DC9-4E6C-83A7-F9B7498FF0E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A} = {E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Client.Console", "MYaSyncQL.Client.Console\MYaSyncQL.Client.Console.csproj", "{3C8C5CB7-6FC7-49FB-AEF1-5EEAE3B51AE3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A} = {E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EEEB6F1-A7AB-4DC3-837B-674247EE002B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEEB6F1-A7AB-4DC3-837B-674247EE002B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEEB6F1-A7AB-4DC3-837B-674247EE002B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEEB6F1-A7AB-4DC3-837B-674247EE002B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD3B92C7-8919-47F3-9770-992C236F8CD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD3B92C7-8919-47F3-9770-992C236F8CD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD3B92C7-8919-47F3-9770-992C236F8CD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD3B92C7-8919-47F3-9770-992C236F8CD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F8E7B3F-8DC9-4E6C-83A7-F9B7498FF0E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8E7B3F-8DC9-4E6C-83A7-F9B7498FF0E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8E7B3F-8DC9-4E6C-83A7-F9B7498FF0E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8E7B3F-8DC9-4E6C-83A7-F9B7498FF0E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C8C5CB7-6FC7-49FB-AEF1-5EEAE3B51AE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C8C5CB7-6FC7-49FB-AEF1-5EEAE3B51AE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C8C5CB7-6FC7-49FB-AEF1-5EEAE3B51AE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C8C5CB7-6FC7-49FB-AEF1-5EEAE3B51AE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B9C7380-BD5E-4D19-8722-986F6B43CA14}
+	EndGlobalSection
+EndGlobal
