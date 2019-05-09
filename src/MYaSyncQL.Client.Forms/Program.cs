@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 namespace MYaSyncQL.Client.Forms {
     static class Program {
+        public static MainForm mainform;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -13,7 +14,8 @@ namespace MYaSyncQL.Client.Forms {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            mainform = new MainForm();
+            Application.Run(new MainForm());
         }
     }
 }
