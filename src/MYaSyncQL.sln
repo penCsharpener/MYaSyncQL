@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.UnitTests", "MYaS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.Utils", "MYaSyncQL.Utils\MYaSyncQL.Utils.csproj", "{12F77903-D119-4910-A04D-42289A7EE261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.WhereExpressions", "MYaSyncQL.WhereExpressions\MYaSyncQL.WhereExpressions.csproj", "{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.WhereExpressions", "MYaSyncQL.WhereExpressions\MYaSyncQL.WhereExpressions.csproj", "{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Client.Forms.Controls", "MYaSyncQL.Client.Forms.Controls\MYaSyncQL.Client.Forms.Controls.csproj", "{CA79B8B6-3ED1-42EC-A37B-F91B003E8833}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA79B8B6-3ED1-42EC-A37B-F91B003E8833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA79B8B6-3ED1-42EC-A37B-F91B003E8833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA79B8B6-3ED1-42EC-A37B-F91B003E8833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA79B8B6-3ED1-42EC-A37B-F91B003E8833}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
