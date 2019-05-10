@@ -8,9 +8,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.ClassBuilder", "M
 		{9EEEB6F1-A7AB-4DC3-837B-674247EE002B} = {9EEEB6F1-A7AB-4DC3-837B-674247EE002B}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.InfoSchema", "MYaSyncQL.InfoSchema\MYaSyncQL.InfoSchema.csproj", "{9EEEB6F1-A7AB-4DC3-837B-674247EE002B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.InfoSchema", "MYaSyncQL.InfoSchema\MYaSyncQL.InfoSchema.csproj", "{9EEEB6F1-A7AB-4DC3-837B-674247EE002B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Client.Blazor", "MYaSyncQL.Client.Blazor\MYaSyncQL.Client.Blazor.csproj", "{CD3B92C7-8919-47F3-9770-992C236F8CD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.Client.Blazor", "MYaSyncQL.Client.Blazor\MYaSyncQL.Client.Blazor.csproj", "{CD3B92C7-8919-47F3-9770-992C236F8CD3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A} = {E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}
 	EndProjectSection
@@ -20,14 +20,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Client.Forms", "M
 		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A} = {E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Client.Console", "MYaSyncQL.Client.Console\MYaSyncQL.Client.Console.csproj", "{3C8C5CB7-6FC7-49FB-AEF1-5EEAE3B51AE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.Client.Console", "MYaSyncQL.Client.Console\MYaSyncQL.Client.Console.csproj", "{3C8C5CB7-6FC7-49FB-AEF1-5EEAE3B51AE3}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E0BCE156-2B7C-4451-A0EA-0C8A90FC754A} = {E0BCE156-2B7C-4451-A0EA-0C8A90FC754A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.UnitTests", "MYaSyncQL.UnitTests\MYaSyncQL.UnitTests.csproj", "{7BB1E013-DFCB-4D4A-BAD5-C055185C2D66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.UnitTests", "MYaSyncQL.UnitTests\MYaSyncQL.UnitTests.csproj", "{7BB1E013-DFCB-4D4A-BAD5-C055185C2D66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.Utils", "MYaSyncQL.Utils\MYaSyncQL.Utils.csproj", "{12F77903-D119-4910-A04D-42289A7EE261}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYaSyncQL.Utils", "MYaSyncQL.Utils\MYaSyncQL.Utils.csproj", "{12F77903-D119-4910-A04D-42289A7EE261}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYaSyncQL.WhereExpressions", "MYaSyncQL.WhereExpressions\MYaSyncQL.WhereExpressions.csproj", "{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{12F77903-D119-4910-A04D-42289A7EE261}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12F77903-D119-4910-A04D-42289A7EE261}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12F77903-D119-4910-A04D-42289A7EE261}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24D67FD9-C973-4AAC-8D1A-E93F2F151E53}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
