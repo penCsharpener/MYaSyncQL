@@ -10,15 +10,15 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
 
         public DGVColumnLayout(string columnName, string headerName, int columnWidth, bool isDynamicWidth, bool readOnly) {
             ColumnName = columnName;
-            HeaderName = headerName;
+            HeaderName = string.IsNullOrEmpty(headerName) ? ColumnName : headerName;
             IsDynamicWidth = isDynamicWidth;
             ColumnWidth = CalculatedDynamicWidth = columnWidth;
             ReadOnly = readOnly;
         }
 
         public DGVColumnLayout(DataGridViewColumn dgvCustomColumn, int columnWidth, bool isDynamicWidth, bool readOnly) {
-            ColumnName = dgvCustomColumn.HeaderText;
-            HeaderName = dgvCustomColumn.Name;
+            ColumnName = dgvCustomColumn.Name;
+            HeaderName = string.IsNullOrEmpty(dgvCustomColumn.HeaderText) ? dgvCustomColumn.Name : dgvCustomColumn.HeaderText;
             DGVCustomColumn = dgvCustomColumn;
             IsDynamicWidth = isDynamicWidth;
             ColumnWidth = CalculatedDynamicWidth = columnWidth;

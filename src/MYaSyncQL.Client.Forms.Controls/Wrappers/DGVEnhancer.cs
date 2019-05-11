@@ -88,6 +88,9 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
         public DataGridView SetColumnLayout(DGVColumnLayout[] layouts) {
             try {
                 ColumnLayouts = layouts;
+                Dgv.Columns.AddRange(ColumnLayouts.Where(x => x.DGVCustomColumn != null)
+                                                  .Select(x => x.DGVCustomColumn)
+                                                  .ToArray());
                 // set column layout properties
                 foreach (var col in DgvColumns) {
                     var colLayout = layouts.FirstOrDefault(x => col.Name == x.ColumnName);

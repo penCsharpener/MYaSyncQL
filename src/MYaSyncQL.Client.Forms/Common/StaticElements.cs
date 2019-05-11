@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace MYaSyncQL.Client.Forms.Common {
     internal static class StaticElements {
         internal static ConnectionManager ConMan = new ConnectionManager();
         internal static LocalSettingsManager Settings = new LocalSettingsManager();
+        internal static MySqlConnection DB;
     }
 }

@@ -12,7 +12,6 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
         public DGVColumnLayout[] ColumnLayouts { get; private set; }
         public DGVColumnLayout[] StaticWidthColumns { get; set; }
         public DGVColumnLayout[] DynamicWidthColumns { get; set; }
-        public int CountOfDynamicColumns { get; }
         public int _totalDynamicWidth;
         private readonly DataGridView _dgv;
 
@@ -32,16 +31,15 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
             }
             TotalStaticWidth = StaticWidthColumns?.Sum(x => x.ColumnWidth) ?? 0;
             TotalWidthRemainingForDynamic = DgvTotalWidth - TotalStaticWidth;
-            CountOfDynamicColumns = DynamicWidthColumns?.Length ?? 0;
             GetDynamicWidthRatios();
         }
 
         protected DGVColumnLayoutManager GetDynamicWidthRatios() {
             foreach (var colLayout in DynamicWidthColumns) {
                 // how many percent of the dynamic column width of the total sum of all dynamic column widths
-                var ratio = (colLayout.ColumnWidth / _totalDynamicWidth);
+                var ratio = ((float)colLayout.ColumnWidth / (float)_totalDynamicWidth);
                 // apply that ratio to the actual remaining width of the data grid view at its current size
-                colLayout.CalculatedDynamicWidth = ratio * TotalWidthRemainingForDynamic;
+                colLayout.CalculatedDynamicWidth = (int)(ratio * TotalWidthRemainingForDynamic);
             }
 
             return this;
