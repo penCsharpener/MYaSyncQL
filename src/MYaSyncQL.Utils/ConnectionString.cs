@@ -26,6 +26,7 @@ namespace MYaSyncQL.Utils {
         }
 
         private string? _password;
+        [JsonIgnore]
         public string? Password {
             get { return _password; }
             set { _password = value; refreshConnectionString = true; }
@@ -60,6 +61,8 @@ namespace MYaSyncQL.Utils {
             get { return _charSet; }
             set { _charSet = value; refreshConnectionString = true; }
         }
+
+        public string ConnectionName { get; set; }
 
         private bool refreshConnectionString;
 

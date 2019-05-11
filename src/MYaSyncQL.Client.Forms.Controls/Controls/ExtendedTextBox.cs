@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace MYaSyncQL.Client.Forms.Controls.Controls {
-    public partial class ExtendedDGV : DataGridView {
-        public ExtendedDGV() {
+    public partial class ExtendedTextBox : TextBox {
+
+        public ExtendedTextBox() {
             InitializeComponent();
             Constructor();
         }
 
-        public ExtendedDGV(IContainer container) {
+        public ExtendedTextBox(IContainer container) {
             container.Add(this);
 
             InitializeComponent();
@@ -23,6 +18,8 @@ namespace MYaSyncQL.Client.Forms.Controls.Controls {
 
         private void Constructor() {
             DoubleBuffered = true;
+            AutoCompleteMode = AutoCompleteMode.Suggest;
+            AutoCompleteSource = AutoCompleteSource.CustomSource;
         }
     }
 }

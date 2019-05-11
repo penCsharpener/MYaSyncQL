@@ -1,5 +1,5 @@
 ﻿namespace MYaSyncQL.Client.Forms.Controls.Controls {
-    partial class ExtendedDGV {
+    partial class ExtendedTextBox {
         /// <summary>
         /// Required designer variable.
         /// </summary>

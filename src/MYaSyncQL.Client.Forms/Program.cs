@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MYaSyncQL.Client.Forms.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace MYaSyncQL.Client.Forms {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            StaticElements.Settings.LoadSettings();
             mainform = new MainForm();
             Application.Run(new MainForm());
         }
