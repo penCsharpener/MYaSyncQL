@@ -53,6 +53,8 @@ namespace MYaSyncQL.InfoSchema {
         public string ColumnComment { get; set; } = "";
         public string IsGenerated { get; set; } = "";
         public string? GenerationExpression { get; set; } = null;
+        public string FullName => $"{TableSchema}.{TableName}.{ColumnName}";
+
 
         public static async Task<List<Column>> GetAsync(MySqlConnection db) {
 
@@ -63,7 +65,7 @@ namespace MYaSyncQL.InfoSchema {
 
             if (db.State == ConnectionState.Open) {
                 var q = new Query("information_schema.COLUMNS")
-                            .WhereIn(__TableSchema, new[] { "information_schema", "mysql", "sys", "performance_schema" });
+                            .WhereNotIn(__TableSchema, new[] { "information_schema", "mysql", "sys", "performance_schema" });
                 using (var cmd = db.GetCommand(q)) {
                     using (var rd = await cmd.ExecuteReaderAsync()) {
                         while (await rd.ReadAsync()) {

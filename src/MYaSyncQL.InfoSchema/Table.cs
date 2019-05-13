@@ -57,6 +57,8 @@ namespace MYaSyncQL.InfoSchema {
         public long? MaxIndexLength { get; set; } = null;
         public string? Temporary { get; set; } = null;
 
+        public string FullName => $"{TableSchema}.{TableName}";
+
         public static async Task<List<Table>> GetAsync(MySqlConnection db) {
 
             if (db.State != ConnectionState.Open) {
@@ -66,8 +68,7 @@ namespace MYaSyncQL.InfoSchema {
 
             if (db.State == ConnectionState.Open) {
                 var q = new Query("information_schema.TABLES")
-                            .WhereIn(__TableSchema, new[] { "information_schema", "mysql", "sys", "performance_schema" });
-
+                            .WhereNotIn(__TableSchema, new[] { "information_schema", "mysql", "sys", "performance_schema" });
                 using (var cmd = db.GetCommand(q)) {
                     using (var rd = await cmd.ExecuteReaderAsync()) {
                         while (await rd.ReadAsync()) {
