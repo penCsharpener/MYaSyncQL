@@ -31,5 +31,10 @@ namespace MYaSyncQL.Client.Forms {
         private void LoadToolStripMenuItem_Click(object sender, EventArgs e) {
             StaticElements.Settings.LoadSettings();
         }
+
+        public event EventHandler ConnectionChanged;
+        protected virtual void OnConnectionChanged() {
+            ConnectionChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
