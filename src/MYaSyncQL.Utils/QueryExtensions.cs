@@ -30,5 +30,10 @@ namespace MYaSyncQL.Utils {
             cmd.CommandType = CommandType.Text;
             return cmd.ApplyQuery(query);
         }
+
+        public static string ToSqlPlain(this Query query) {
+            var sqlResult = _compiler.Compile(query);
+            return sqlResult.ToString();
+        }
     }
 }

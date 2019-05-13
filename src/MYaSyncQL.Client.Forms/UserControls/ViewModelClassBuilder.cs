@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MYaSyncQL.Client.Forms.Common;
+using MYaSyncQL.InfoSchema;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -23,6 +25,18 @@ namespace MYaSyncQL.Client.Forms.UserControls {
         #endregion
 
         #region Methods
+
+        private List<Table> Tables;
+        public async Task<List<Table>> GetTables() {
+            Tables = await Table.GetAsync(StaticElements.DB);
+            return Tables;
+        }
+
+        private List<Column> Columns;
+        public async Task<List<Column>> GetColumns() {
+            Columns = await Column.GetAsync(StaticElements.DB);
+            return Columns;
+        }
 
         #endregion
     }

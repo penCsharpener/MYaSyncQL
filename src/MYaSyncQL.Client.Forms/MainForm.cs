@@ -22,6 +22,7 @@ namespace MYaSyncQL.Client.Forms {
         private void ManageDatabaseConnetionsToolStripMenuItem_Click(object sender, EventArgs e) {
             var dlg = new DialogManageDatabaseConnection();
             dlg.ShowDialog();
+            if (StaticElements.DB != null) OnConnectionChanged();
         }
 
         private void SaveToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -34,6 +35,7 @@ namespace MYaSyncQL.Client.Forms {
 
         public event EventHandler ConnectionChanged;
         protected virtual void OnConnectionChanged() {
+            panelMain.AddControl(new UCClassBuilder());
             ConnectionChanged?.Invoke(this, EventArgs.Empty);
         }
     }
