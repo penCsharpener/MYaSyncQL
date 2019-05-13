@@ -51,8 +51,8 @@
     <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
       <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
     </Reference>
-    <Reference Include="MySqlConnector, Version=0.53.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySqlConnector.0.53.0\lib\net471\MySqlConnector.dll</HintPath>
+    <Reference Include="MySqlConnector, Version=0.54.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySqlConnector.0.54.0\lib\net471\MySqlConnector.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -165,6 +165,10 @@
     <ProjectReference Include="..\MYaSyncQL.Client.Forms.Controls\MYaSyncQL.Client.Forms.Controls.csproj">
       <Project>{ca79b8b6-3ed1-42ec-a37b-f91b003e8833}</Project>
       <Name>MYaSyncQL.Client.Forms.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MYaSyncQL.InfoSchema\MYaSyncQL.InfoSchema.csproj">
+      <Project>{9eeeb6f1-a7ab-4dc3-837b-674247ee002b}</Project>
+      <Name>MYaSyncQL.InfoSchema</Name>
     </ProjectReference>
     <ProjectReference Include="..\MYaSyncQL.Utils\MYaSyncQL.Utils.csproj">
       <Project>{12f77903-d119-4910-a04d-42289a7ee261}</Project>
