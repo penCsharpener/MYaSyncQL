@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace MYaSyncQL.ClassBuilder {
-    internal class ReaderLine {
+    public class ReaderLine {
 
         public Column Column { get; }
         public CSharpType CSharpType { get; }
@@ -27,8 +27,8 @@ namespace MYaSyncQL.ClassBuilder {
             var txtAwait = async ? "await " : "";
             var readerline = "";
             var rdTemplate = $"newItem.{_propertyName} = {txtAwait}rd.{{0}}";
-            if (CSharpType.Nullable) {
-                readerline = rdTemplate.F($"IsDBNull{txtAsync}(rd.GetOrdinal(__{_propertyName})) ? default({CSharpType.FullStringType}) : {txtAwait}rd.GetFieldValue{txtAsync}<{CSharpType.NonNullableStringType}>(rd.GetOrdinal(__{_propertyName}));");
+            if (CSharpType.Nullable) {                                                       // default({CSharpType.FullStringType})
+                readerline = rdTemplate.F($"IsDBNull{txtAsync}(rd.GetOrdinal(__{_propertyName})) ? null : {txtAwait}rd.GetFieldValue{txtAsync}<{CSharpType.FullStringType}>(rd.GetOrdinal(__{_propertyName}));");
             } else {
                 readerline = rdTemplate.F($"GetFieldValue{txtAsync}<{CSharpType.FullStringType}>(rd.GetOrdinal(__{_propertyName}));");
             }
