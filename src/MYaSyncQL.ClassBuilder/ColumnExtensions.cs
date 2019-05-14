@@ -1,4 +1,5 @@
 ﻿using MYaSyncQL.InfoSchema;
+using penCsharpener.DotnetUtils;
 using System;
 
 namespace MYaSyncQL.ClassBuilder {
@@ -91,6 +92,31 @@ namespace MYaSyncQL.ClassBuilder {
 
         private static bool IsUnsigned(this Column column) {
             return column.ColumnType.IndexOf("unsigned", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        /// <summary>
+        /// method assumes the column name is in snake_case
+        /// </summary>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
+        public static string ToPropertyName(this string columnName) {
+            return columnName.SnakeToPascalCase();
+        }
+
+        /// <summary>
+        /// converts a database table name from plural snake case to singular pascal case.
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        public static string ToClassName(this string tableName) {
+            var className = tableName.SnakeToPascalCase();
+            if (className.EndsWith("ies")) {
+                className = className.Substring(0, className.Length - 3) + "y";
+            }
+            if (className.EndsWith("s") && !className.EndsWith("status")) {
+                className = className.Substring(0, className.Length - 1);
+            }
+            return className;
         }
     }
 }
