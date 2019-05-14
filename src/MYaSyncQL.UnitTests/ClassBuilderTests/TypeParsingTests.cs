@@ -19,25 +19,25 @@ namespace MYaSyncQL.UnitTests.ClassBuilderTests {
                 DataType = "bigint",
                 ColumnType = "bigint(20) unsigned",
             };
-            var result1 = column.ToCSharpType();
+            var result1 = column.ToStringType();
             Assert.IsTrue(result1 == "ulong");
             var column2 = new Column() {
                 DataType = "bigint",
                 ColumnType = "bigint(11)",
             };
-            var result2 = column2.ToCSharpType();
+            var result2 = column2.ToStringType();
             Assert.IsTrue(result2 == "long");
             var column3 = new Column() {
                 DataType = "tinyint",
                 ColumnType = "tinyint(1) unsigned",
             };
-            var result3 = column3.ToCSharpType();
+            var result3 = column3.ToStringType();
             Assert.IsTrue(result3 == "bool");
             var column4 = new Column() {
                 DataType = "tinyint",
                 ColumnType = "tinyint(1)",
             };
-            var result4 = column4.ToCSharpType();
+            var result4 = column4.ToStringType();
             Assert.IsTrue(result4 == "bool");
         }
 
