@@ -65,7 +65,8 @@ namespace MYaSyncQL.InfoSchema {
 
             if (db.State == ConnectionState.Open) {
                 var q = new Query("information_schema.COLUMNS")
-                            .WhereNotIn(__TableSchema, new[] { "information_schema", "mysql", "sys", "performance_schema" });
+                            .WhereNotIn(__TableSchema, new[] { "information_schema", "mysql", "sys", "performance_schema" })
+                            .OrderBy(__TableSchema, __TableName, __ColumnName, __OrdinalPosition);
                 using (var cmd = db.GetCommand(q)) {
                     using (var rd = await cmd.ExecuteReaderAsync()) {
                         while (await rd.ReadAsync()) {
