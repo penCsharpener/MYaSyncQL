@@ -46,40 +46,40 @@ namespace MYaSyncQL.ClassBuilder {
         public static Type ToType(this Column column) {
             if (column.DataType.EndsWith("text", StringComparison.OrdinalIgnoreCase)
                 || column.DataType.EndsWith("varchar", StringComparison.OrdinalIgnoreCase)) {
-                return typeof(string);
+                return column.IsNullable == "YES" && CSharpType.UseCSharpEightNullableReferenceTypes ? typeof(string?) : typeof(string);
             } else if (column.DataType.Equals("bigint", StringComparison.OrdinalIgnoreCase)) {
-                if (column.IsUnsigned()) return typeof(ulong);
-                return typeof(long);
+                if (column.IsUnsigned()) return column.IsNullable == "YES" ? typeof(ulong?) : typeof(ulong);
+                return column.IsNullable == "YES" ? typeof(long?) : typeof(long);
             } else if (column.DataType.Equals("int", StringComparison.OrdinalIgnoreCase)) {
-                if (column.IsUnsigned()) return typeof(uint);
-                return typeof(int);
+                if (column.IsUnsigned()) return column.IsNullable == "YES" ? typeof(uint?) : typeof(uint);
+                return column.IsNullable == "YES" ? typeof(int?) : typeof(int);
             } else if (column.DataType.Equals("tinyint", StringComparison.OrdinalIgnoreCase)) {
                 if (column.ColumnType.IndexOf("(1)", StringComparison.OrdinalIgnoreCase) >= 0) {
-                    return typeof(bool);
+                    return column.IsNullable == "YES" ? typeof(bool?) : typeof(bool);
                 }
-                if (column.IsUnsigned()) return typeof(ushort);
-                return typeof(short);
+                if (column.IsUnsigned()) return column.IsNullable == "YES" ? typeof(ushort?) : typeof(ushort);
+                return column.IsNullable == "YES" ? typeof(short?) : typeof(short);
             } else if (column.DataType.Equals("smallint", StringComparison.OrdinalIgnoreCase)) {
-                if (column.IsUnsigned()) return typeof(ushort);
-                else return typeof(short);
+                if (column.IsUnsigned()) return column.IsNullable == "YES" ? typeof(ushort?) : typeof(ushort);
+                else return column.IsNullable == "YES" ? typeof(short?) : typeof(short);
             } else if (column.DataType.Equals("datetime", StringComparison.OrdinalIgnoreCase)) {
-                return typeof(DateTime);
+                return column.IsNullable == "YES" ? typeof(DateTime?) : typeof(DateTime);
             } else if (column.DataType.Equals("decimal", StringComparison.OrdinalIgnoreCase)) {
-                return typeof(decimal);
+                return column.IsNullable == "YES" ? typeof(decimal?) : typeof(decimal);
             } else if (column.DataType.Equals("double", StringComparison.OrdinalIgnoreCase)) {
-                return typeof(double);
+                return column.IsNullable == "YES" ? typeof(double?) : typeof(double);
             } else if (column.DataType.Equals("float", StringComparison.OrdinalIgnoreCase)) {
-                return typeof(float);
+                return column.IsNullable == "YES" ? typeof(float?) : typeof(float);
             } else if (column.DataType.EndsWith("blob", StringComparison.OrdinalIgnoreCase)
                 || column.DataType.IndexOf("varbin", StringComparison.OrdinalIgnoreCase) >= 0) {
-                return typeof(byte[]);
+                return column.IsNullable == "YES" && CSharpType.UseCSharpEightNullableReferenceTypes ? typeof(byte[]?) : typeof(byte[]);
             } else if (column.DataType.Equals("date", StringComparison.OrdinalIgnoreCase)) {
-                return typeof(DateTime);
+                return column.IsNullable == "YES" ? typeof(DateTime?) : typeof(DateTime);
             } else if (column.DataType.Equals("bit", StringComparison.OrdinalIgnoreCase)
                        || column.ColumnType.IndexOf("(1)", StringComparison.OrdinalIgnoreCase) >= 0) {
-                return typeof(bool);
+                return column.IsNullable == "YES" ? typeof(bool?) : typeof(bool);
             }
-            return typeof(object);
+            return column.IsNullable == "YES" && CSharpType.UseCSharpEightNullableReferenceTypes ? typeof(object?) : typeof(object);
         }
 
         public static CSharpType ToCSharpType(this Column column) {
