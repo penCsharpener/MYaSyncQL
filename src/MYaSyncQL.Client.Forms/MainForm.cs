@@ -17,6 +17,9 @@ namespace MYaSyncQL.Client.Forms {
         private void MainForm_Load(object sender, EventArgs e) {
             this.Size = new Size(1920, 1080);
             panelMain.AddControl(new UCClassBuilder());
+            if (StaticElements.DB == null) {
+                ManageDatabaseConnetionsToolStripMenuItem_Click(null, null);
+            }
         }
 
         private void ManageDatabaseConnetionsToolStripMenuItem_Click(object sender, EventArgs e) {

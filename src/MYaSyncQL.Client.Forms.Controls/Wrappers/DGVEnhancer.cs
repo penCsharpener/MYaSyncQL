@@ -12,6 +12,7 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
 
         public DataGridView Dgv { get; }
         public BindingSource BindingSource { get; }
+        public T CurrentlySelected => BindingSource.Current as T;
         public DataGridViewColumn[] DgvColumns => Dgv.GetColumns();
         public DGVColumnLayout[] ColumnLayouts { private set; get; }
 
@@ -49,9 +50,11 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
             BindingSource.CurrentChanged += BindingSource_CurrentChanged;
             dgv.Resize += (s, e) => {
                 try {
-                    new DGVColumnLayoutManager(ColumnLayouts, dgv).ApplyColumnWidths();
-                    if (dgv.Width % 35 == 0) {
-                        GC.Collect();
+                    if (ColumnLayouts != null) {
+                        new DGVColumnLayoutManager(ColumnLayouts, dgv).ApplyColumnWidths();
+                        if (dgv.Width % 35 == 0) {
+                            GC.Collect();
+                        }
                     }
                 } catch (Exception ex) {
                     Console.WriteLine(ex.ToString());
