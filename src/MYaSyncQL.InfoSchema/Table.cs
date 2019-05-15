@@ -79,7 +79,7 @@ namespace MYaSyncQL.InfoSchema {
                             newItem.TableName = await rd.GetFieldValueAsync<string>(rd.GetOrdinal(__TableName));
                             newItem.TableType = await rd.GetFieldValueAsync<string>(rd.GetOrdinal(__TableType));
                             newItem.Engine = await rd.IsDBNullAsync(rd.GetOrdinal(__Engine)) ? null : await rd.GetFieldValueAsync<string>(rd.GetOrdinal(__Engine));
-                            newItem.Version = await rd.IsDBNullAsync(rd.GetOrdinal(__Version)) ? default(long?) : await rd.GetFieldValueAsync<long>(rd.GetOrdinal(__Version));
+                            newItem.Version = await rd.IsDBNullAsync(rd.GetOrdinal(__Version)) ? default(long?) : await rd.GetFieldValueAsync<long?>(rd.GetOrdinal(__Version));
                             newItem.RowFormat = await rd.IsDBNullAsync(rd.GetOrdinal(__RowFormat)) ? null : await rd.GetFieldValueAsync<string>(rd.GetOrdinal(__RowFormat));
                             newItem.TableRows = await rd.IsDBNullAsync(rd.GetOrdinal(__TableRows)) ? default(ulong?) : await rd.GetFieldValueAsync<ulong>(rd.GetOrdinal(__TableRows));
                             newItem.AvgRowLength = await rd.IsDBNullAsync(rd.GetOrdinal(__AvgRowLength)) ? default(ulong?) : await rd.GetFieldValueAsync<ulong>(rd.GetOrdinal(__AvgRowLength));

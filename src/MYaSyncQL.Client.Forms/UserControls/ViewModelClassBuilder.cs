@@ -18,9 +18,23 @@ namespace MYaSyncQL.Client.Forms.UserControls {
 
         #region Bound Properties
 
+        public string ClassCode { get; set; }
+        private Table _SelectedTable;
+        public Table SelectedTable {
+            get { return _SelectedTable; }
+            set { _SelectedTable = value; OnSelectedTableChanged(); }
+        }
+
         #endregion
 
         #region Events
+
+        public event EventHandler SelectedTableChanged;
+        protected virtual void OnSelectedTableChanged() {
+
+
+            SelectedTableChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         #endregion
 
@@ -37,6 +51,8 @@ namespace MYaSyncQL.Client.Forms.UserControls {
             Columns = await Column.GetAsync(StaticElements.DB);
             return Columns;
         }
+
+
 
         #endregion
     }

@@ -13,10 +13,12 @@ namespace MYaSyncQL.UnitTests.ClassBuilderTests {
             ColumnType = "bigint(20) unsigned",
         };
         public static Column NonNullableNumericBig = new Column() {
-            ColumnName = "measurement",
+            ColumnName = "measurement_id",
             IsNullable = "NO",
             DataType = "bigint",
             ColumnType = "bigint(11)",
+            ColumnKey = "PRI",
+            Extra = "auto_increment",
         };
         public static Column NullableNumericToBoolNullableUnsigned = new Column() {
             ColumnName = "stable_pinetree_paper",

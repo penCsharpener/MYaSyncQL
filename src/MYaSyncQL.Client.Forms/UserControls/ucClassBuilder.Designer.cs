@@ -28,15 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCClassBuilder));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataTables = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.dataTables = new System.Windows.Forms.DataGridView();
+            this.txtClassCode = new FastColoredTextBoxNS.FastColoredTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataTables)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtClassCode)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -73,6 +78,15 @@
             this.panel1.Size = new System.Drawing.Size(264, 609);
             this.panel1.TabIndex = 0;
             // 
+            // dataTables
+            // 
+            this.dataTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataTables.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataTables.Location = new System.Drawing.Point(0, 0);
+            this.dataTables.Name = "dataTables";
+            this.dataTables.Size = new System.Drawing.Size(264, 609);
+            this.dataTables.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,6 +107,7 @@
             // panel4
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.panel4, 4);
+            this.panel4.Controls.Add(this.txtClassCode);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(273, 156);
             this.panel4.Name = "panel4";
@@ -100,14 +115,38 @@
             this.panel4.Size = new System.Drawing.Size(1077, 609);
             this.panel4.TabIndex = 3;
             // 
-            // dataTables
+            // txtClassCode
             // 
-            this.dataTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataTables.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataTables.Location = new System.Drawing.Point(0, 0);
-            this.dataTables.Name = "dataTables";
-            this.dataTables.Size = new System.Drawing.Size(264, 609);
-            this.dataTables.TabIndex = 0;
+            this.txtClassCode.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.txtClassCode.AutoScrollMinSize = new System.Drawing.Size(179, 12);
+            this.txtClassCode.BackBrush = null;
+            this.txtClassCode.CharHeight = 12;
+            this.txtClassCode.CharWidth = 8;
+            this.txtClassCode.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtClassCode.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.txtClassCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtClassCode.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClassCode.IsReplaceMode = false;
+            this.txtClassCode.Language = FastColoredTextBoxNS.Language.CSharp;
+            this.txtClassCode.Location = new System.Drawing.Point(0, 0);
+            this.txtClassCode.Name = "txtClassCode";
+            this.txtClassCode.Paddings = new System.Windows.Forms.Padding(0);
+            this.txtClassCode.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.txtClassCode.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("txtClassCode.ServiceColors")));
+            this.txtClassCode.Size = new System.Drawing.Size(1077, 609);
+            this.txtClassCode.TabIndex = 0;
+            this.txtClassCode.Text = "fastColoredTextBox1";
+            this.txtClassCode.Zoom = 100;
             // 
             // UCClassBuilder
             // 
@@ -120,6 +159,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataTables)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtClassCode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,5 +173,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dataTables;
+        private FastColoredTextBoxNS.FastColoredTextBox txtClassCode;
     }
 }
