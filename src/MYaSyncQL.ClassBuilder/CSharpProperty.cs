@@ -12,6 +12,8 @@ namespace MYaSyncQL.ClassBuilder {
         public string AttributeText { get; }
         public string PropertyText { get; }
         public string PropertyName { get; }
+        public string ColumnConstant { get; }
+        public string InsertTable { get; set; } = "\t\t";
 
         public CSharpProperty(Column column, CSharpType csType) {
             Column = column;
@@ -23,12 +25,13 @@ namespace MYaSyncQL.ClassBuilder {
                 AttributeText = $"[Column(\"{Column.ColumnName}\")]";
             }
             PropertyText = $"public {CSharpType.FullStringType} {PropertyName} {{ get; set; }}";
+            ColumnConstant = $"public const string __{PropertyName} = \"{column.ColumnName}\";";
         }
 
         public override string ToString() {
             var sb = new StringBuilder();
             if (IncludeSqlKataAttributes) {
-                sb.AppendLine(AttributeText);
+                sb.AppendLine(AttributeText).Append(InsertTable);
             }
             sb.AppendLine(PropertyText);
             return sb.ToString();

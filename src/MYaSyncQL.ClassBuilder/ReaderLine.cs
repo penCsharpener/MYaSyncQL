@@ -9,12 +9,22 @@ namespace MYaSyncQL.ClassBuilder {
 
         public Column Column { get; }
         public CSharpType CSharpType { get; }
+        public CSharpProperty CSharpProp { get; }
+
         private string _propertyName;
 
         public ReaderLine(Column column) {
             Column = column;
             CSharpType = column.ToCSharpType();
+            CSharpProp = new CSharpProperty(column, CSharpType);
             _propertyName = column.ColumnName.ToPropertyName();
+        }
+
+        public ReaderLine(CSharpProperty prop) {
+            Column = prop.Column;
+            CSharpType = prop.CSharpType;
+            CSharpProp = prop;
+            _propertyName = Column.ColumnName.ToPropertyName();
         }
 
         /// <summary>
