@@ -41,8 +41,8 @@ namespace MYaSyncQL.InfoSchema {
         public string DataType { get; set; } = "";
         public long? CharacterMaximumLength { get; set; } = null;
         public long? CharacterOctetLength { get; set; } = null;
-        public uint? NumericPrecision { get; set; } = null;
-        public uint? NumericScale { get; set; } = null;
+        public ulong? NumericPrecision { get; set; } = null;
+        public ulong? NumericScale { get; set; } = null;
         public uint? DatetimePrecision { get; set; } = null;
         public string? CharacterSetName { get; set; } = null;
         public string? CollationName { get; set; } = null;
@@ -56,7 +56,7 @@ namespace MYaSyncQL.InfoSchema {
         public string FullName => $"{TableSchema}.{TableName}.{ColumnName}";
 
 
-        public static async Task<List<Column>> GetAsync(MySqlConnection db) {
+        public static async Task<List<Column>> GetAsync(MySqlConnection db, string? schemaName = null, string? tableName = null) {
 
             if (db.State != ConnectionState.Open) {
                 await db.OpenAsync();
@@ -67,6 +67,10 @@ namespace MYaSyncQL.InfoSchema {
                 var q = new Query("information_schema.COLUMNS")
                             .WhereNotIn(__TableSchema, new[] { "information_schema", "mysql", "sys", "performance_schema" })
                             .OrderBy(__TableSchema, __TableName, __OrdinalPosition);
+                if (!string.IsNullOrEmpty(schemaName) && !string.IsNullOrEmpty(tableName)) {
+                    q.WhereIn(__TableSchema, schemaName);
+                    q.WhereIn(__TableName, tableName);
+                }
                 using (var cmd = db.GetCommand(q)) {
                     using (var rd = await cmd.ExecuteReaderAsync()) {
                         while (await rd.ReadAsync()) {
@@ -81,8 +85,8 @@ namespace MYaSyncQL.InfoSchema {
                             newItem.DataType = await rd.GetFieldValueAsync<string>(rd.GetOrdinal(__DataType));
                             newItem.CharacterMaximumLength = await rd.IsDBNullAsync(rd.GetOrdinal(__CharacterMaximumLength)) ? null : await rd.GetFieldValueAsync<long?>(rd.GetOrdinal(__CharacterMaximumLength));
                             newItem.CharacterOctetLength = await rd.IsDBNullAsync(rd.GetOrdinal(__CharacterOctetLength)) ? null : await rd.GetFieldValueAsync<long?>(rd.GetOrdinal(__CharacterOctetLength));
-                            newItem.NumericPrecision = await rd.IsDBNullAsync(rd.GetOrdinal(__NumericPrecision)) ? null : await rd.GetFieldValueAsync<uint?>(rd.GetOrdinal(__NumericPrecision));
-                            newItem.NumericScale = await rd.IsDBNullAsync(rd.GetOrdinal(__NumericScale)) ? null : await rd.GetFieldValueAsync<uint?>(rd.GetOrdinal(__NumericScale));
+                            newItem.NumericPrecision = await rd.IsDBNullAsync(rd.GetOrdinal(__NumericPrecision)) ? null : await rd.GetFieldValueAsync<ulong?>(rd.GetOrdinal(__NumericPrecision));
+                            newItem.NumericScale = await rd.IsDBNullAsync(rd.GetOrdinal(__NumericScale)) ? null : await rd.GetFieldValueAsync<ulong?>(rd.GetOrdinal(__NumericScale));
                             newItem.DatetimePrecision = await rd.IsDBNullAsync(rd.GetOrdinal(__DatetimePrecision)) ? null : await rd.GetFieldValueAsync<uint?>(rd.GetOrdinal(__DatetimePrecision));
                             newItem.CharacterSetName = await rd.IsDBNullAsync(rd.GetOrdinal(__CharacterSetName)) ? null : await rd.GetFieldValueAsync<string>(rd.GetOrdinal(__CharacterSetName));
                             newItem.CollationName = await rd.IsDBNullAsync(rd.GetOrdinal(__CollationName)) ? null : await rd.GetFieldValueAsync<string>(rd.GetOrdinal(__CollationName));
