@@ -4,6 +4,7 @@ using MYaSyncQL.InfoSchema;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,12 +22,15 @@ namespace MYaSyncQL.Client.Forms.UserControls {
 
         public string Namespace { get; set; } = "MYaSyncQL.GeneratedClass";
         public string ClassCode { get; set; }
+        public string TargetPath { get; set; }
 
         private Table _SelectedTable;
         public Table SelectedTable {
             get { return _SelectedTable; }
             set { _SelectedTable = value; OnSelectedTableChanged(); }
         }
+
+        public List<Table> SelectedTables { get; set; }
 
         private bool _IncludeAttributes = true;
         public bool IncludeAttributes {
@@ -60,21 +64,39 @@ namespace MYaSyncQL.Client.Forms.UserControls {
             SelectedTableChanged?.Invoke(this, EventArgs.Empty);
         }
 
+        public async Task SaveClasses() {
+            if (Directory.Exists(TargetPath) && SelectedTables?.Count > 0) {
+                foreach (var tbl in SelectedTables) {
+                    var classBuilder = await GenerateClassCode(tbl);
+                    var pathToSave = Path.Combine(TargetPath, classBuilder.ClassName + ".cs");
+                    if (File.Exists(pathToSave)) {
+                        File.Delete(pathToSave);
+                    }
+                    File.WriteAllText(pathToSave, classBuilder.ToString(Namespace));
+                }
+            }
+        }
+
         #endregion
 
         #region Methods
 
-        public async Task GenerateClassCode() {
+        public async Task<CSharpClass> GenerateClassCode(Table table = null) {
+            Table tableToUse = null;
             try {
-                if (string.IsNullOrEmpty(SelectedTable?.TableName) || StaticElements.DB == null) {
-                    return;
-                }
-                var columns = await Column.GetAsync(StaticElements.DB, SelectedTable.TableSchema, SelectedTable.TableName);
-                var classBuilder = new CSharpClass(SelectedTable, columns, FullyAsyncReading);
+                if ((string.IsNullOrEmpty(SelectedTable?.TableName) && table == null) || StaticElements.DB == null) {
+                    return null;
+                } else if (table != null) tableToUse = table;
+                else tableToUse = SelectedTable;
+
+                var columns = await Column.GetAsync(StaticElements.DB, tableToUse.TableSchema, tableToUse.TableName);
+                var classBuilder = new CSharpClass(tableToUse, columns, FullyAsyncReading);
                 ClassCode = classBuilder.ToString(Namespace);
+                return classBuilder;
             } catch (Exception ex) {
                 Console.WriteLine(ex);
             }
+            return null;
         }
 
         private List<Table> Tables;

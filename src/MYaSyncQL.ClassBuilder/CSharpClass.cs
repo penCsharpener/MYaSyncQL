@@ -20,7 +20,7 @@ namespace MYaSyncQL.ClassBuilder {
 
         public List<CSharpProperty> Properties { get; set; } = new List<CSharpProperty>();
 
-        private string _className;
+        public string ClassName { get; }
 
         public CSharpClass(Table table, IEnumerable<Column> columns, bool fullyAsync = false) {
             Table = table;
@@ -30,7 +30,7 @@ namespace MYaSyncQL.ClassBuilder {
             }
 
             _fullyAsync = fullyAsync;
-            _className = Table.TableName.ToClassName();
+            ClassName = Table.TableName.ToClassName();
         }
 
         private string GetConstantBlock() {
@@ -61,18 +61,18 @@ namespace MYaSyncQL.ClassBuilder {
             var schemaTable = $"{Table.TableSchema}.{Table.TableName}";
             GetListTemplate =
 $@"
-        public static async Task<List<{_className}>> GetAsync(MySqlConnection db) {{
+        public static async Task<List<{ClassName}>> GetAsync(MySqlConnection db) {{
 
             if (db.State != ConnectionState.Open) await db.OpenAsync();
-            var list = new List<{_className}>();
+            var list = new List<{ClassName}>();
 
             if (db.State == ConnectionState.Open) {{
-                var q = new Query(""{schemaTable}"")
+                var q = new Query(""{schemaTable}"");
 
                 using (var cmd = db.GetCommand(q)) {{
                     using (var rd = await cmd.ExecuteReaderAsync()) {{
                         while (await rd.ReadAsync()) {{
-                            var newItem = new {_className}();
+                            var newItem = new {ClassName}();
 ##ReaderBlock##
                             list.Add(newItem);
                         }}
@@ -94,14 +94,10 @@ $@"{string.Join(Environment.NewLine, NameSpaces)}
 
 namespace {yourNamespace} {{
 
-    public class {_className} {{
-
+    public class {ClassName} {{
 {GetConstantBlock()}
-
 {GetPropertyBlock()}
-
 {GenerateGetList()}
-
         public override string ToString() {{
             return base.ToString();
         }}

@@ -60,6 +60,9 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
                     Console.WriteLine(ex.ToString());
                 }
             };
+            dgv.SelectionChanged += (s, e) => {
+                OnSelectionChanged(dgv.SelectedRows.Cast<DataGridViewRow>().Select(x => x.DataBoundItem as T));
+            };
         }
 
         private void BindingSource_CurrentChanged(object sender, EventArgs e) {
@@ -81,6 +84,11 @@ namespace MYaSyncQL.Client.Forms.Controls.Wrappers {
         public event EventHandler<T> CurrentChanged;
         protected virtual void OnCurrentChanged(T bindingSourceCurrent) {
             CurrentChanged?.Invoke(this, bindingSourceCurrent);
+        }
+
+        public event EventHandler<IEnumerable<T>> SelectionChanged;
+        protected virtual void OnSelectionChanged(IEnumerable<T> items) {
+            SelectionChanged?.Invoke(this, items);
         }
 
         public DataGridView Refresh() {
