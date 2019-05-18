@@ -36,7 +36,7 @@ namespace MYaSyncQL.UnitTests.ExpressionTests {
                                                 ExpressionTestClass.Mapping(),
                                                 query);
             var whereClause = compiler.Compile(exp.ToSQL()).ToString();
-            Assert.IsTrue(whereClause == "");
+            Assert.IsTrue(whereClause == "SELECT * FROM `some_example_table` WHERE `id` IN ('1', '2', '3', '4')");
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace MYaSyncQL.UnitTests.ExpressionTests {
                                                 ExpressionTestClass.Mapping(),
                                                 query);
             var whereClause = compiler.Compile(exp.ToSQL()).ToString();
-            Assert.IsTrue(whereClause == "");
+            Assert.IsTrue(whereClause == "SELECT * FROM `some_example_table` WHERE `description` IN ('day', 'word', 'sunset')");
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace MYaSyncQL.UnitTests.ExpressionTests {
                                                 ExpressionTestClass.Mapping(),
                                                 query);
             var whereClause = compiler.Compile(exp.ToSQL()).ToString();
-            Assert.IsTrue(whereClause == "");
+            Assert.IsTrue(whereClause == "SELECT * FROM `some_example_table` WHERE `description` IN ('day', 'word', 'sunset') AND `id` IN ('1', '2', '3', '4') AND `is_active` = false AND LOWER(`description`) like 'matter'");
         }
 
         [TearDown]
