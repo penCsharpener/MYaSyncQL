@@ -24,6 +24,7 @@
     <ProjectReference Include="..\MYaSyncQL.ClassBuilder\MYaSyncQL.ClassBuilder.csproj" />
     <ProjectReference Include="..\MYaSyncQL.InfoSchema\MYaSyncQL.InfoSchema.csproj" />
     <ProjectReference Include="..\MYaSyncQL.Utils\MYaSyncQL.Utils.csproj" />
+    <ProjectReference Include="..\MYaSyncQL.WhereExpressions\MYaSyncQL.WhereExpressions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
