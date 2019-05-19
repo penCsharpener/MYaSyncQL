@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 
 namespace MYaSyncQL.WhereExpressions {
@@ -81,6 +82,26 @@ namespace MYaSyncQL.WhereExpressions {
                                             } else if (array.Type == typeof(string[])) {
                                                 _query.WhereIn<string>(columnName, array.Expressions.Cast<ConstantExpression>().Select(x => x.Value).Cast<string>());
                                             }
+                                        }
+                                    } else if (meth.Arguments[1] is ConditionalExpression constant) {
+
+                                    } else if (meth.Arguments[1] is MemberExpression field) {
+                                        if (field.Type.BaseType == typeof(Array)) {
+                                            object container = ((ConstantExpression)field.Expression).Value;
+                                            if (field.Member is FieldInfo memInfo) {
+                                                if (field.Type == typeof(uint[])) {
+                                                    _query.WhereIn<uint>(columnName, memInfo.GetValue(container).CastTo<uint[]>());
+                                                } else if (field.Type == typeof(int[])) {
+                                                    _query.WhereIn<int>(columnName, memInfo.GetValue(container).CastTo<int[]>());
+                                                } else if (field.Type == typeof(long[])) {
+                                                    _query.WhereIn<long>(columnName, memInfo.GetValue(container).CastTo<long[]>());
+                                                } else if (field.Type == typeof(ulong[])) {
+                                                    _query.WhereIn<ulong>(columnName, memInfo.GetValue(container).CastTo<ulong[]>());
+                                                } else if (field.Type == typeof(string[])) {
+                                                    _query.WhereIn<string>(columnName, memInfo.GetValue(container).CastTo<string[]>());
+                                                }
+                                            }
+
                                         }
                                     }
                                     break;

@@ -29,7 +29,7 @@ namespace MYaSyncQL.UnitTests.ExpressionTests {
         }
 
         [Test]
-        public void InUintTest() {
+        public void InUintArrayTest() {
             var compiler = new MySqlCompiler();
             var query = new Query("some_example_table");
             var exp = new ExpressionParser<ExpressionTestClass>(x => x.Id.In<uint>(1, 2, 3, 4),
@@ -40,10 +40,34 @@ namespace MYaSyncQL.UnitTests.ExpressionTests {
         }
 
         [Test]
-        public void InStringTest() {
+        public void InUintArrayVariableTest() {
+            var compiler = new MySqlCompiler();
+            var query = new Query("some_example_table");
+            var uintArray = new uint[] { 1, 2, 3, 4 };
+            var exp = new ExpressionParser<ExpressionTestClass>(x => x.Id.In<uint>(uintArray),
+                                                ExpressionTestClass.Mapping(),
+                                                query);
+            var whereClause = compiler.Compile(exp.ToSQL()).ToString();
+            Assert.IsTrue(whereClause == "SELECT * FROM `some_example_table` WHERE `id` IN ('1', '2', '3', '4')");
+        }
+
+        [Test]
+        public void InStringArrayTest() {
             var compiler = new MySqlCompiler();
             var query = new Query("some_example_table");
             var exp = new ExpressionParser<ExpressionTestClass>(x => x.Description.In("day", "word", "sunset"),
+                                                ExpressionTestClass.Mapping(),
+                                                query);
+            var whereClause = compiler.Compile(exp.ToSQL()).ToString();
+            Assert.IsTrue(whereClause == "SELECT * FROM `some_example_table` WHERE `description` IN ('day', 'word', 'sunset')");
+        }
+
+        [Test]
+        public void InStringArrayVariableTest() {
+            var compiler = new MySqlCompiler();
+            var query = new Query("some_example_table");
+            var stringArray = new[] { "day", "word", "sunset" };
+            var exp = new ExpressionParser<ExpressionTestClass>(x => x.Description.In(stringArray),
                                                 ExpressionTestClass.Mapping(),
                                                 query);
             var whereClause = compiler.Compile(exp.ToSQL()).ToString();
