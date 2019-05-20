@@ -54,6 +54,11 @@ namespace MYaSyncQL.Client.Forms.Forms {
                     }
                 }
             };
+            this.KeyDown += (s, e) => {
+                if (e.KeyCode == Keys.Escape || (e.Control && e.KeyCode == Keys.Enter)) {
+                    this.Close();
+                }
+            };
 
             InitBindings();
         }

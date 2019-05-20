@@ -26,34 +26,34 @@ namespace MYaSyncQL.Client.Forms.Forms {
         /// </summary>
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblDatabaseConnectionName = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dataConnections = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAddConnection = new System.Windows.Forms.Button();
             this.numPort = new System.Windows.Forms.NumericUpDown();
+            this.txtDatabaseName = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
             this.label6 = new System.Windows.Forms.Label();
+            this.txtUsername = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
             this.label4 = new System.Windows.Forms.Label();
+            this.txtServerURL = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtConnectionName = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataConnections = new System.Windows.Forms.DataGridView();
-            this.txtDatabaseName = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
-            this.txtUsername = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
-            this.txtServerURL = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
-            this.txtConnectionName = new MYaSyncQL.Client.Forms.Controls.Controls.ExtendedTextBox(this.components);
             this.panelHeader.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataConnections)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPort)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataConnections)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHeader
@@ -107,6 +107,32 @@ namespace MYaSyncQL.Client.Forms.Forms {
             this.panel1.Size = new System.Drawing.Size(615, 348);
             this.panel1.TabIndex = 0;
             // 
+            // dataConnections
+            // 
+            this.dataConnections.AllowUserToAddRows = false;
+            this.dataConnections.AllowUserToDeleteRows = false;
+            this.dataConnections.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(170)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataConnections.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataConnections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.YellowGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataConnections.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataConnections.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataConnections.Location = new System.Drawing.Point(0, 0);
+            this.dataConnections.Name = "dataConnections";
+            this.dataConnections.RowHeadersVisible = false;
+            this.dataConnections.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataConnections.Size = new System.Drawing.Size(615, 348);
+            this.dataConnections.TabIndex = 0;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnAddConnection);
@@ -159,6 +185,15 @@ namespace MYaSyncQL.Client.Forms.Forms {
             0,
             0});
             // 
+            // txtDatabaseName
+            // 
+            this.txtDatabaseName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtDatabaseName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtDatabaseName.Location = new System.Drawing.Point(172, 186);
+            this.txtDatabaseName.Name = "txtDatabaseName";
+            this.txtDatabaseName.Size = new System.Drawing.Size(213, 23);
+            this.txtDatabaseName.TabIndex = 4;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -168,6 +203,15 @@ namespace MYaSyncQL.Client.Forms.Forms {
             this.label6.TabIndex = 1;
             this.label6.Text = "Database Name:";
             // 
+            // txtUsername
+            // 
+            this.txtUsername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtUsername.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtUsername.Location = new System.Drawing.Point(172, 157);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(213, 23);
+            this.txtUsername.TabIndex = 3;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -176,6 +220,15 @@ namespace MYaSyncQL.Client.Forms.Forms {
             this.label4.Size = new System.Drawing.Size(68, 15);
             this.label4.TabIndex = 1;
             this.label4.Text = "User Name:";
+            // 
+            // txtServerURL
+            // 
+            this.txtServerURL.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtServerURL.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtServerURL.Location = new System.Drawing.Point(172, 99);
+            this.txtServerURL.Name = "txtServerURL";
+            this.txtServerURL.Size = new System.Drawing.Size(213, 23);
+            this.txtServerURL.TabIndex = 1;
             // 
             // label5
             // 
@@ -194,6 +247,15 @@ namespace MYaSyncQL.Client.Forms.Forms {
             this.label3.Size = new System.Drawing.Size(66, 15);
             this.label3.TabIndex = 1;
             this.label3.Text = "Server URL:";
+            // 
+            // txtConnectionName
+            // 
+            this.txtConnectionName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtConnectionName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtConnectionName.Location = new System.Drawing.Point(172, 70);
+            this.txtConnectionName.Name = "txtConnectionName";
+            this.txtConnectionName.Size = new System.Drawing.Size(213, 23);
+            this.txtConnectionName.TabIndex = 0;
             // 
             // label2
             // 
@@ -223,69 +285,6 @@ namespace MYaSyncQL.Client.Forms.Forms {
             this.label1.TabIndex = 0;
             this.label1.Text = "add new connection";
             // 
-            // edgvConnections
-            // 
-            this.dataConnections.AllowUserToAddRows = false;
-            this.dataConnections.AllowUserToDeleteRows = false;
-            this.dataConnections.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(255)))), ((int)(((byte)(170)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataConnections.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataConnections.AutoGenerateColumns = false;
-            this.dataConnections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.YellowGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataConnections.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataConnections.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataConnections.Location = new System.Drawing.Point(0, 0);
-            this.dataConnections.Name = "edgvConnections";
-            this.dataConnections.RowHeadersVisible = false;
-            this.dataConnections.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataConnections.Size = new System.Drawing.Size(615, 348);
-            this.dataConnections.TabIndex = 0;
-            // 
-            // txtDatabaseName
-            // 
-            this.txtDatabaseName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtDatabaseName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtDatabaseName.Location = new System.Drawing.Point(172, 186);
-            this.txtDatabaseName.Name = "txtDatabaseName";
-            this.txtDatabaseName.Size = new System.Drawing.Size(213, 23);
-            this.txtDatabaseName.TabIndex = 4;
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtUsername.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtUsername.Location = new System.Drawing.Point(172, 157);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(213, 23);
-            this.txtUsername.TabIndex = 3;
-            // 
-            // txtServerURL
-            // 
-            this.txtServerURL.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtServerURL.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtServerURL.Location = new System.Drawing.Point(172, 99);
-            this.txtServerURL.Name = "txtServerURL";
-            this.txtServerURL.Size = new System.Drawing.Size(213, 23);
-            this.txtServerURL.TabIndex = 1;
-            // 
-            // txtConnectionName
-            // 
-            this.txtConnectionName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtConnectionName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtConnectionName.Location = new System.Drawing.Point(172, 70);
-            this.txtConnectionName.Name = "txtConnectionName";
-            this.txtConnectionName.Size = new System.Drawing.Size(213, 23);
-            this.txtConnectionName.TabIndex = 0;
-            // 
             // DialogManageDatabaseConnection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -294,6 +293,7 @@ namespace MYaSyncQL.Client.Forms.Forms {
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyPreview = true;
             this.Name = "DialogManageDatabaseConnection";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Database Connection";
@@ -301,12 +301,12 @@ namespace MYaSyncQL.Client.Forms.Forms {
             this.panelHeader.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataConnections)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPort)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataConnections)).EndInit();
             this.ResumeLayout(false);
 
         }
