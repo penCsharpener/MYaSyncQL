@@ -57,8 +57,11 @@ namespace MYaSyncQL.ClassBuilder {
             return sb.ToString();
         }
 
+        private string GetTableConstant() {
+            return $"\t\tpublic const string __TableName = \"{Table.TableSchema}.{Table.TableName}\";";
+        }
+
         private string GenerateGetList() {
-            var schemaTable = $"{Table.TableSchema}.{Table.TableName}";
             GetListTemplate =
 $@"
         public static async Task<List<{ClassName}>> GetAsync(MySqlConnection db) {{
@@ -67,7 +70,7 @@ $@"
             var list = new List<{ClassName}>();
 
             if (db.State == ConnectionState.Open) {{
-                var q = new Query(""{schemaTable}"");
+                var q = new Query(__TableName);
 
                 using (var cmd = db.GetCommand(q)) {{
                     using (var rd = await cmd.ExecuteReaderAsync()) {{
@@ -95,6 +98,8 @@ $@"{string.Join(Environment.NewLine, NameSpaces)}
 namespace {yourNamespace} {{
 
     public class {ClassName} {{
+
+{GetTableConstant()}
 {GetConstantBlock()}
 {GetPropertyBlock()}
 {GenerateGetList()}
