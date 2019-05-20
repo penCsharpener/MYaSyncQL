@@ -20,9 +20,9 @@ namespace MYaSyncQL.ClassBuilder {
             CSharpType = csType;
             PropertyName = column.ColumnName.ToPropertyName();
             if (Column.ColumnKey == "PRI" && Column.Extra == "auto_increment") {
-                AttributeText = $"[Key(\"{Column.ColumnName}\")]";
+                AttributeText = $"[Key(__{PropertyName})]";
             } else {
-                AttributeText = $"[Column(\"{Column.ColumnName}\")]";
+                AttributeText = $"[Column(__{PropertyName})]";
             }
             PropertyText = $"public {CSharpType.FullStringType} {PropertyName} {{ get; set; }}";
             ColumnConstant = $"public const string __{PropertyName} = \"{column.ColumnName}\";";
